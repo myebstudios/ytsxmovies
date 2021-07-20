@@ -1,21 +1,26 @@
-@import '@nativescript/theme/core';
-@import '@nativescript/theme/default';
+// @import '@nativescript/theme/core';
+// @import '@nativescript/theme/default';
 
-// Place any CSS rules you want to apply on both iOS and Android here.
-// This is where the vast majority of your CSS code goes.
+$colors:  (
+    background-black: #111111,
+    nav-black: #0B0B0B,
+    accent: #FFC700,
+    yellow: #FFC700
+);
 
-// Font icon class
-.fab {
-  font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
-  font-weight: 400;
+.screen {
+    padding: 50 16 0 16;
+    background: #111111;
 }
 
-.fas {
-  font-family: 'Font Awesome 5 Free', 'fa-solid-900';
-  font-weight: 900;
+Label.h1 {
+    font-family: 'Poppins-Bold';
+    font-size: 30;
+    color: white;
 }
 
-.far {
-  font-family: 'Font Awesome 5 Free', 'fa-regular-400';
-  font-weight: 400;
+Label.h2 {
+    font-size: 20;
+    font-family: 'Poppins-Bold';
+    color: white;
 }
