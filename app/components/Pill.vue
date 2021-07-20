@@ -1,5 +1,5 @@
 <template>
-    <Label class="pill" text="ACTION (3)" textWrap="true" />
+    <Label class="pill active" text="ACTION (3)" textWrap="true" />
 </template>
 <script>
     export default {

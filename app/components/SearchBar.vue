@@ -1,13 +1,29 @@
 <template>
     <FlexboxLayout class="search-bar">
         <Image src="~/images/icons/search-icon.png" />
-        <TextField returnKeyType="search" hint="Search" />
+        <TextField :text="query" @returnPress="search" returnKeyType="search" hint="Search" />
     </FlexboxLayout>
 </template>
 
 <script>
+    // import Search from '~/views/Search.vue'
+
     export default {
-        name: 'SeachBar'
+        name: 'SeachBar',
+        data() {
+            return {
+                query: ''
+            }
+        },
+        // components: {
+        //     Search,
+        // },
+        methods: {
+            search() {
+                console.log(`Query: ${this.query}`)
+                // Search.methods.searchMovies(this.query);
+            }
+        }
     }
 </script>
 

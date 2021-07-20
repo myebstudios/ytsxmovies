@@ -4,7 +4,7 @@
             <Image style="border-radius: 15;" width="280" height="180" src="~/images/covers/cover1.jpg" stretch="aspectFill"/>
         </AbsoluteLayout>
 
-        <Label class="h2" text="Hitman’s Wife’s Bodyguard" textWrap="true" />
+        <Label style="margin-top: 10;" class="h2" text="Hitman’s Wife’s Bodyguard" textWrap="true" />
         
         <Rating />
     </StackLayout>
@@ -16,6 +16,9 @@
         name: 'MovieCardTop',
         components: {
             Rating
+        },
+        props: {
+            movie: Object
         }
     }
 </script>

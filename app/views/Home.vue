@@ -1,19 +1,20 @@
 <template>
     <StackLayout class="screen">
 
-        <!-- <Pill /> -->
 
-        <Label class="h1" text="Top Five." textWrap="true" />
+        <Label style="margin-bottom: 10;" class="h1" text="Top Five." textWrap="true" />
 
-        <ScrollView orientation="horizontal">
+        <ScrollView style="margin-bottom: 20;" orientation="horizontal">
             <StackLayout orientation="horizontal">
+                <MovieCardTop />
+                <MovieCardTop />
                 <MovieCardTop />
                 <MovieCardTop />
                 <MovieCardTop />
             </StackLayout>
         </ScrollView>
 
-        <FlexboxLayout class="title_link">
+        <FlexboxLayout style="margin-bottom: 10;" class="title_link">
             <Label class="h1" text="Latest." textWrap="true" />
             <Label class="see_more" text="SEE MORE" textWrap="true" />
         </FlexboxLayout>
@@ -38,9 +39,9 @@
 
     import { Http } from '@nativescript/core'
 
+    console.log('Welcome home.')
+
     export default {
-
-
         name: 'Home',
         data() {
             return {
@@ -59,7 +60,8 @@
                     (response) => {
                         this.movies = response.data.movies;
                         // this.loading = false;
-                        console.log("Done...");
+                        console.log("Done from Home...");
+                        return response.data.movies;
                     },
                     e => {
                         console.log(e);

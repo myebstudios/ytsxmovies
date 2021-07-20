@@ -24,3 +24,24 @@ Label.h2 {
     font-family: 'Poppins-Bold';
     color: white;
 }
+
+FlexboxLayout.top_bar {
+    align-items: center;
+}
+
+Label.pill {
+    height: 25;
+    text-align: center;
+    padding: 3 15;
+    margin-right: 10;
+    background-color: #2A2A2A;
+    border-radius: 50;
+    font-size: 14;
+    font-family: 'Poppins-Regular';
+    color: #ffffff;
+
+    &.active {
+        background-color: #FFC700;
+        color: #111111;
+    }
+}

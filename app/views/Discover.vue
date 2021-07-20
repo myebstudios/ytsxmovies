@@ -1,12 +1,11 @@
 <template>
     <GridLayout rows="auto, *" columns="*" class="screen">
-        <StackLayout style="margin-bottom: 20;" row="0">
+        <StackLayout style="margin-bottom: 30;" row="0">
             <FlexboxLayout class="top_bar">
             <Image @tap="goHome" width="14" style="margin-right: 30;" src="~/images/icons/back-icon.png" />
-            <Label class="h1" text="Search." textWrap="true" />
+            <Label class="h1" text="Discover." textWrap="true" />
+            
             </FlexboxLayout>
-
-            <SearchBar style="margin-bottom: 20;" />
 
             <ScrollView scrollBarIndicatorVisible="false" orientation="horizontal">
                 <StackLayout orientation="horizontal">
@@ -32,38 +31,29 @@
 </template>
 
 <script>
-    import SearchBar from '~/components/SearchBar.vue'
+    import { Http } from '@nativescript/core'
     import MovieCard from '~/components/MovieCard.vue'
-    import {Http} from '@nativescript/core'
+    import Home from './Home.vue'
+    // import Index from './Index.vue'
 
     export default {
-        name: 'Search',
-        components: {
-            SearchBar,
-            MovieCard,
-        },
+        name: 'Discover',
         data() {
             return {
-                movies: this.searchMovies("marvel")
+                movies: this.getMovies()
             }
         },
+        components: {
+            MovieCard,
+            Home,
+            // Index
+        },
         methods: {
+            goHome() {
+                Index.methods.goTo(Home)
+            },
             getMovies() {
                 Http.getJSON('https://yts.mx/api/v2/list_movies.json').then(
-                    (response) => {
-                        this.movies = response.data.movies;
-                        // this.loading = false;
-                        console.log("Done from Home...");
-                        return response.data.movies;
-                    },
-                    e => {
-                        console.log(e);
-                    }
-                )
-            },
-            searchMovies(query) {
-                console.log(`Searching ${query}`)
-                Http.getJSON(`https://yts.mx/api/v2/list_movies.json?query_term=${query}`).then(
                     (response) => {
                         this.movies = response.data.movies;
                         // this.loading = false;
@@ -92,5 +82,4 @@
 </script>
 
 <style scoped lang="scss">
-    
 </style>
